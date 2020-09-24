@@ -1,4 +1,4 @@
-from sortedlistnodubl import SortedListNoDubl
+from sortedListNoDubl import SortedListNoDubl
 
 
 def main():
