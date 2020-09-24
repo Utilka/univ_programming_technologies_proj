@@ -44,7 +44,7 @@ class SortedListNoDubl:
     def clear(self):
         self.__array = []
 
-    def get_list(self, key):
+    def get_list(self):
         return self.__array
 
     def __repr__(self):
