@@ -5,10 +5,10 @@ from sortedListNoDubl import SortedListNoDubl
 
 class TestArr(unittest.TestCase):
 
-    def common_result_eq_test(self, cases, results, test=""):
+    def common_result_eq_test(self, cases, results, test="",ascending_order=True):
         for a, r in zip(cases, results):
             with self.subTest(case=a):
-                b = SortedListNoDubl(list(a))
+                b = SortedListNoDubl(list(a),ascending_order=ascending_order)
                 self.assertTrue(all(x == y for x, y in zip(b.get_list(), r)),
                                 msg=test + ": elements changed. a = " + str(a) + ", b = " + str(b) + ", r = " + str(r))
 
@@ -26,14 +26,9 @@ class TestArr(unittest.TestCase):
                       [], [-0], [-1], list(range(-10, 0)), list(range(0, -10, -1)))
 
         self.results = ([], [0], [1], list(range(9, -1, -1)), list(range(10, 0, -1)),
-                        [], [0], [-1], list(range(-1, -11, -1)), list(range(-1, -11, -1)))
+                        [], [0], [-1], list(range(-1, -11, -1)), list(range(0, -10, -1)))
 
-        for a, r in zip(self.cases, self.results):
-            with self.subTest(case=a):
-                b = SortedListNoDubl(list(a),ascending_order=False)
-                self.assertTrue(all(x == y for x, y in zip(b.get_list(), r)),
-                                msg="test_reverse_sorting : elements changed. a = " + str(a) + ", b = " + str(
-                                    b) + ", r = " + str(r))
+        self.common_result_eq_test(self.cases, self.results, 'test_reverse_sorting', ascending_order=False)
 
     def test_duplicates_removal(self):
         self.cases = ([1, 1], [1, 1, 2, 2, 3, 3, 4, 4],
@@ -79,7 +74,7 @@ class TestArr(unittest.TestCase):
                                 msg="test_merge : elements changed. a = " + str(a) + ", b = " + str(b))
 
     def test_exceptions(self):
-        self.cases = (([1, 2], ["a", "b"]),
+        self.cases = (([1, 2], "a"),
                       ([1, 2], [1, 2]))
 
         for a in self.cases:

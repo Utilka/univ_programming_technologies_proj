@@ -29,12 +29,11 @@ class SortedListNoDubl:
         low = 0
 
         for ad_item in ad_list:
-            ind = bisect(self.__array, ad_item, self.__ascending_order, low)
-            low = ind
-
-            if self.__array[ind] == ad_item:
+            if ad_item in self.__array:
                 assert ignore_dub_flag, "item already in list"
             else:
+                ind = bisect(self.__array, ad_item, self.__ascending_order, low)
+                low = ind
                 self.__array.insert(ind, ad_item)
 
 
