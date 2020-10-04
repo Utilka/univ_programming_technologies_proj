@@ -2,4 +2,4 @@ FROM python
 
 COPY . .
 
-CMD [ "python", "./main.py" ]
+CMD [ "python", "./unitTest.py" ]
