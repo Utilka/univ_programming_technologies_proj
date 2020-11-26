@@ -56,6 +56,7 @@ pipeline
 		} // stage Test
 		stage('Docker Publish')
 		{
+            agent any
             when {
                 expression {
                     currentBuild.result == null || currentBuild.result == 'SUCCESS'
@@ -68,7 +69,7 @@ pipeline
                     def customImage = docker.build("my-image:${env.BUILD_ID}")
                     customImage.push('latest')
                 }
-                
+
             }
 		} // stage Build
 	} // stages
