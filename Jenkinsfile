@@ -57,5 +57,19 @@ pipeline
 				}
 			} // post
 		} // stage Test
+		stage('Build Docker')
+		{
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
+            steps {
+                echo "Application Publishing"
+//                 checkout scm
+//                 def customImage = docker.build("my-image:${env.BUILD_ID}")
+//                 customImage.push()
+            }
+		} // stage Build
 	} // stages
 }
