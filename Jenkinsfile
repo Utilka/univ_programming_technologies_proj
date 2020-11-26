@@ -71,7 +71,7 @@ pipeline
                 checkout scm
                 script {
                     def customImage = docker.build("docker-test:${env.BUILD_ID}")
-                    docker.withRegistry(registryCredential )
+                    docker.withRegistry('',registryCredential )
                     {
                         customImage.push()}
                     }
