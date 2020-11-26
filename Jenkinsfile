@@ -36,7 +36,7 @@ pipeline
 			steps
 			{
 			    sh 'ls -l'
-				sh 'pip install --no-cache-dir -r /requirements.txt'
+				sh 'pip install --no-cache-dir -r ./requirements.txt'
 				sh 'pip install xmlrunner'
 				sh 'python3 unitTest.py'
 			}
