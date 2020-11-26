@@ -96,6 +96,9 @@ def sort_test_suite():
 
 
 if __name__ == '__main__':
-    runner = unittest.TextTestRunner(stream=sys.stdout, verbosity=2)
-    test_suite = sort_test_suite()
-    runner.run(test_suite)
+    import xmlrunner
+
+    runner = xmlrunner.XMLTestRunner(output='test-reports')
+    unittest.main(testRunner=runner)
+    unittest.main()
+
