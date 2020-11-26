@@ -1,5 +1,9 @@
 pipeline
 {
+    environment {
+        registryCredential = 'utilka-dockerhub'
+        dockerImage = ''
+    }
 	options
 	{
 		timestamps()
@@ -66,7 +70,7 @@ pipeline
                 echo "Application Publishing"
                 checkout scm
                 script {
-                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    def customImage = docker.build("lab_5:${env.BUILD_ID}")
                     customImage.push('latest')
                 }
 
