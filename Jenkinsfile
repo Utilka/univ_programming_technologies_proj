@@ -29,15 +29,13 @@ pipeline
 			{
 				docker
 				{
-					image 'alpine'
+					image 'python:3.8.6-slim'
 					args '-u=\"root\"'
 				}
 			}
 			steps
 			{
-                sh 'apk add python3 py-pip'
-				sh 'pip install Flask'
-				sh 'pip install xmlrunner'
+				sh 'pip install --no-cache-dir -r requirements.txt'
 				sh 'python3 unitTest.py'
 			}
 			post
