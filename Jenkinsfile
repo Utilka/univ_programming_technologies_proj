@@ -1,7 +1,7 @@
 pipeline
 {
     environment {
-        registryCredential = 'utilka-dockerhub'
+        registryCredential = 'dockerhub'
         dockerImage = ''
     }
 	options
