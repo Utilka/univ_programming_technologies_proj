@@ -77,6 +77,6 @@ pipeline
                     }
 
             }
-		} // stage Build
+		} // stage Docker Publish
 	} // stages
 }
