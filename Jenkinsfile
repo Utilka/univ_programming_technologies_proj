@@ -29,13 +29,13 @@ pipeline
 			{
 				docker
 				{
-					image 'python'
+					image 'alpine'
 					args '-u=\"root\"'
 				}
 			}
 			steps
 			{
-				sh 'apk add python3 py-pip'
+                sh 'apk add python3 py-pip'
 				sh 'pip install Flask'
 				sh 'pip install xmlrunner'
 				sh 'python3 TestMe.py'
