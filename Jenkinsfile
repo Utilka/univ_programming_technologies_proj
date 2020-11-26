@@ -49,7 +49,6 @@ pipeline
 				success
 				{
 					echo "Application testing successfully completed "
-					sh 'docker build .'
 				}
 				failure
 				{
@@ -57,7 +56,7 @@ pipeline
 				}
 			} // post
 		} // stage Test
-		stage('Build Docker')
+		stage('Docker Publish')
 		{
             when {
                 expression {
