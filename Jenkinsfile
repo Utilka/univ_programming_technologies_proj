@@ -71,8 +71,10 @@ pipeline
                 checkout scm
                 script {
                     def customImage = docker.build("lab_5:${env.BUILD_ID}")
-                    customImage.push('latest')
-                }
+                    docker.withRegistry( '', registryCredential )
+                    {
+                        customImage.push('latest')}
+                    }
 
             }
 		} // stage Build
